@@ -48,18 +48,51 @@ A Parallel in Parallel out (PIPO) shift register is used as a temporary storage 
 ### PROGRAM 
 /*
 Program for  Implementation-of Shift-registers-using-verilog-
-Developed by: 
-RegisterNumber:  
+
+Developed by:Jivan Karthec.B.S
+RegisterNumber:  212222100017
 */
 
-
-
-
+## PROGRAM 1
+```
+     module SIPO(c,si,po);
+     input c,si;
+     output[7:0]po;
+     reg [0:7]temp;
+     always@(posedge c)
+     begin
+     temp={temp[0:6],si};
+     end
+     assign po=temp;
+     endmodule
+```
+## PROGRAM 2
+```
+    module PISO (c,pi,so,load);
+    input [3:0]pi;
+    input load,c;
+    output reg so;
+    reg [3:0]tmp;
+    always @(posedge c)
+    begin
+    if(load)
+    tmp<=pi;
+    else
+    begin 
+    so<=tmp[3];
+    tmp<={tmp[2:0],1'b0};
+    end 
+    end 
+    endmodule 
+```
 
 
 ### RTL LOGIC  REGISTERS   
 
 
+![Screenshot 2023-06-07 155245](https://github.com/Dharshan011/Exercise-09-Shift-registers-using-verilog-/assets/113497491/92691c15-5951-4c73-a487-95487c6160c6)
+![Screenshot 2023-06-07 155238](https://github.com/Dharshan011/Exercise-09-Shift-registers-using-verilog-/assets/113497491/7bba8e97-55b8-4ab8-8795-154930057bb7)
+![Screenshot 2023-06-07 155230](https://github.com/Dharshan011/Exercise-09-Shift-registers-using-verilog-/assets/113497491/d571ed42-6ab0-4e52-83ed-b63d9cc87c15)
 
 
 
@@ -71,9 +104,11 @@ RegisterNumber:
 
 
 
+![Screenshot 2023-06-07 155255](https://github.com/Dharshan011/Exercise-09-Shift-registers-using-verilog-/assets/113497491/938bc5bb-c8a2-49d6-bd4c-cb3b3bfa8929)
 
 
 
 
 
 ### RESULTS 
+Thus the program to implement shift registers is done successfully.
